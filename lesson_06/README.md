@@ -89,8 +89,6 @@ Explanation: Adjacent letters 'a' and 'b' would represent adjacent abbreviated s
 - abbr consists of only lowercase English letters
 - Letters representing numbers follow a=1, b=2, ..., z=26
 
-**Challenge:** Consider edge cases like when abbreviation letters exceed the remaining word length, adjacent abbreviation characters, and ensuring the abbreviation perfectly matches the word structure.
-
 [article-link]: https://blog.danslimmon.com/2024/01/18/3-questions-that-will-make-you-a-phenomenal-rubber-duck/
 [calculator-file]: ./expression/src/expression_calculator.ts
 [env-file]: ./expression/.env.test
