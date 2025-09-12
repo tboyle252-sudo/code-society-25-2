@@ -1,4 +1,4 @@
-package com.codedifferently.lesson16.Dice;
+package com.codedifferently.lesson16.dice;
 
 public enum DiceMaterial {
   PLASTIC,
