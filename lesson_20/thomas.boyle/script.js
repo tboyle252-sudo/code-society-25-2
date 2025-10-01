@@ -73,13 +73,17 @@
     function svg(color,text){
       return `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='480' height='300'><rect width='100%' height='100%' fill='${color}'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='48' fill='white'>${text}</text></svg>`;
     }
+    // Added first three stock SVG assets (offline files) then fallback generated placeholders
     const images = [
-      svg('#0b3b82','One'),
-      svg('#f26722','Two'),
-      svg('#6b6b6b','Three'),
-      svg('#1d7f5f','Four'),
-      svg('#8246b3','Five'),
-      svg('#b52828','Six')
+      {src:'images/stock-mountain.svg', alt:'Mountain landscape with layered snowy peaks'},
+      {src:'images/stock-forest.svg', alt:'Stylized forest trail with evergreen trees'},
+      {src:'images/stock-ocean.svg', alt:'Ocean horizon with sun and gentle waves'},
+      {src: svg('#0b3b82','One'), alt:'Abstract slate blue panel with label One'},
+      {src: svg('#f26722','Two'), alt:'Abstract orange panel with label Two'},
+      {src: svg('#6b6b6b','Three'), alt:'Abstract gray panel with label Three'},
+      {src: svg('#1d7f5f','Four'), alt:'Abstract green panel with label Four'},
+      {src: svg('#8246b3','Five'), alt:'Abstract violet panel with label Five'},
+      {src: svg('#b52828','Six'), alt:'Abstract red panel with label Six'}
     ];
 
     let idx=0; let paused=false; let timer=null;
@@ -94,8 +98,9 @@
         const imgI = (idx+i)%images.length;
         const fig=document.createElement('figure');
         const img=document.createElement('img');
-        img.src=images[imgI];
-        img.alt='Gallery image '+(imgI+1);
+        const meta = images[imgI];
+        img.src=meta.src;
+        img.alt=meta.alt;
         fig.appendChild(img);
         viewport.appendChild(fig);
       }
